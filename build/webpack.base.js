@@ -2,8 +2,8 @@ const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
 
-console.log('NODE_ENV = ', process.env.NODE_ENV)
-console.log('BASE_ENV = ', process.env.BASE_ENV)
+console.log("NODE_ENV = ", process.env.NODE_ENV)
+console.log("BASE_ENV = ", process.env.BASE_ENV)
 
 module.exports = {
   // 入口文件
@@ -55,7 +55,7 @@ module.exports = {
       },
       // 匹配字体图标文件
       {
-        test:/.(woff2?|eot|ttf|otf)$/,
+        test: /.(woff2?|eot|ttf|otf)$/,
         type: "asset",
         parser: {
           dataUrlCondition: {
@@ -63,12 +63,12 @@ module.exports = {
           }
         },
         generator:{
-          filename:'static/fonts/[name][ext]',
+          filename: "static/fonts/[name][ext]",
         },
       },
       // 匹配媒体文件
       {
-        test:/.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
+        test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
         type: "asset",
         parser: {
           dataUrlCondition: {
@@ -76,7 +76,7 @@ module.exports = {
           }
         },
         generator:{
-          filename:'static/media/[name][ext]',
+          filename: "static/media/[name][ext]",
         },
       },
     ],
