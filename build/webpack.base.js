@@ -90,7 +90,9 @@ module.exports = {
     // 配置别名
     alias: {
       "@": path.join(__dirname, "../src")
-    }
+    },
+    // 查找第三方模块只在本项目的node_modules中查找
+    modules: [path.resolve(__dirname, "../node_modules")]
   },
   // 插件
   plugins: [
