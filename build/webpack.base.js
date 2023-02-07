@@ -99,5 +99,9 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.BASE_ENV": JSON.stringify(process.env.BASE_ENV)
     })
-  ]
+  ],
+  cache: {
+    // 使用文件缓存
+    type: "filesystem"
+  }
 }
