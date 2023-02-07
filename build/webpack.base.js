@@ -37,6 +37,21 @@ module.exports = {
       {
         test: /.less$/,
         use: ["style-loader", "css-loader", "less-loader"],
+      },
+      // 图片处理
+      {
+        test: /.(png|jpg|jpeg|gif|svg)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            // 小于10k转成base64
+            maxSize: 10 * 1027,
+          }
+        },
+        generator: {
+          // 文件输出目录和命名
+          filename: "static/images/[name]p[ext]",
+        }
       }
     ],
   },
