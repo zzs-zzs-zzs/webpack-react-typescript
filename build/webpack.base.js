@@ -26,13 +26,6 @@ module.exports = {
         test: /.(ts|tsx)$/,
         use: {
           loader: "babel-loader",
-          options: {
-            // 预设顺序由后往前执行，限制性ts在执行jsx
-            presets: [
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ]
-          }
         }
       },
       // css处理
