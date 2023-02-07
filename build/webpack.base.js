@@ -83,6 +83,10 @@ module.exports = {
     // extensions作用：在引入模块时候不带文件后缀时候，会读取数组配置查找后缀
     // ts文件不支持引入.ts .tsx为后缀的文件
     extensions: [".js", ".tsx", ".ts"],
+    // 配置别名
+    alias: {
+      "@": path.join(__dirname, "../src")
+    }
   },
   // 插件
   plugins: [

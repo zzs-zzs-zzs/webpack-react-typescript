@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import "./App.css"
 import "./App.less"
-import Class from "./components/Class"
-import smallImg from './assets/img/logo.svg'
-import bigImg from './assets/img/test.png'
+import Class from "@/components/Class"
+import smallImg from '@/assets/img/logo.svg'
+import bigImg from '@/assets/img/test.png'
 
 const App = () => {
 
