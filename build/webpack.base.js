@@ -1,5 +1,9 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require("webpack")
+
+console.log('NODE_ENV = ', process.env.NODE_ENV)
+console.log('BASE_ENV = ', process.env.BASE_ENV)
 
 module.exports = {
   // 入口文件
@@ -45,6 +49,10 @@ module.exports = {
       template: path.resolve(__dirname, "../public/index.html"),
       // 自动注入静态资源
       inject: true,
+    }),
+    // 通过DefinePlugin，将环境变量注入
+    new webpack.DefinePlugin({
+      "process.env.BASE_ENV": JSON.stringify(process.env.BASE_ENV)
     })
   ]
 }
