@@ -21,6 +21,7 @@ module.exports = {
   },
   module: {
     rules: [
+      // ts | tsx 处理
       {
         test: /.(ts|tsx)$/,
         use: {
@@ -33,6 +34,11 @@ module.exports = {
             ]
           }
         }
+      },
+      // css处理
+      {
+        test: /.css$/,
+        use: ["style-loader", "css-loader"],
       }
     ],
   },
