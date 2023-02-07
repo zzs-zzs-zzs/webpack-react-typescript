@@ -1,9 +1,10 @@
 import React from "react"
 import "./App.css"
+import "./App.less"
 
 const App = () => {
   return (
-    <h2 className="red">webpack5-react-ts</h2>
+    <h2 className="red size">webpack5-react-ts</h2>
   )
 }
 
