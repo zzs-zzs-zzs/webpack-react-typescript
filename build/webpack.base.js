@@ -23,16 +23,20 @@ module.exports = {
     rules: [
       // ts | tsx 处理
       {
+        //  只对项目src文件的ts,tsx进行loader解析
+        include: [path.resolve(__dirname, "../src")],
         test: /.(ts|tsx)$/,
         use: ["thread-loader", "babel-loader"]
       },
       // css处理
       {
+        include: path.resolve(__dirname, "../src"),
         test: /.css$/,
         use: ["style-loader", "css-loader"],
       },
       // less处理
       {
+        include: path.resolve(__dirname, "../src"),
         test: /.less$/,
         use: ["style-loader", "css-loader", "less-loader"],
       },
