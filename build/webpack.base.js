@@ -24,9 +24,7 @@ module.exports = {
       // ts | tsx 处理
       {
         test: /.(ts|tsx)$/,
-        use: {
-          loader: "babel-loader",
-        }
+        use: ["thread-loader", "babel-loader"]
       },
       // css处理
       {
