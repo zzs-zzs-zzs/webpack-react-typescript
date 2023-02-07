@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === "development"
+
 module.exports = {
   // 预设顺序由后往前执行，限制性ts在执行jsx
   presets: [
@@ -22,6 +24,7 @@ module.exports = {
     [
       "@babel/plugin-proposal-decorators",
       { legacy: true },
-    ]
+      isDev && require.resolve("react-refresh/babel"),
+    ].filter(Boolean)
   ]
 }
