@@ -27,6 +27,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "babel-loader": "^9.1.2",
+    "compression-webpack-plugin": "^10.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.27.2",
     "cross-env": "^7.0.3",

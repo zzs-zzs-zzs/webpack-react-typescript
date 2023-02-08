@@ -7,6 +7,8 @@ const TerserWebpackPlugin = require("terser-webpack-plugin")
 const PurgecssWebpackPlugin = require("purgecss-webpack-plugin")
 const globAll = require("glob-all")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const glob = require("glob")
+const CompressionWebpackPlugin = require("compression-webpack-plugin")
 
 module.exports = merge(baseConfig, {
   mode: "production",
@@ -38,6 +40,14 @@ module.exports = merge(baseConfig, {
       safelist: {
         standard: [/^ant-/], // 过滤以ant-开头的类名，哪怕没用到也不删除
       }
+    }),
+    // 开启gzip压缩
+    new CompressionWebpackPlugin({
+      test: /.(js|css)$/, // 只生成js和css
+      filename: "[path][base].gz", // 文件命名
+      algorithm: "gzip", // 压缩格式
+      threshold: 10240, // 大于10k才压缩
+      minRatio: 0.8, // 压缩率
     })
   ],
   optimization: {
