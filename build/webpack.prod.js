@@ -2,9 +2,9 @@ const { merge } = require("webpack-merge")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const baseConfig = require("./webpack.base")
 const path = require("path")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = merge(baseConfig, {
-  // 开发模式，打包更快，省掉优化代码
   mode: "production",
   plugins: [
     // 复制文件插件
@@ -18,6 +18,10 @@ module.exports = merge(baseConfig, {
           }
         }
       ]
+    }),
+    new MiniCssExtractPlugin({
+      // 抽离css的输出目录和名称
+      filename: "static/css/[name].css",
     })
-  ]
+  ],
 })

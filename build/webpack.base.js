@@ -1,6 +1,9 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const isDev = process.env.NODE_ENV === "development"
 
 console.log("NODE_ENV = ", process.env.NODE_ENV)
 console.log("BASE_ENV = ", process.env.BASE_ENV)
@@ -32,13 +35,22 @@ module.exports = {
       {
         include: path.resolve(__dirname, "../src"),
         test: /.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          // 开发环境使用style-looader,打包模式抽离css
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+        ],
       },
       // less处理
       {
         include: path.resolve(__dirname, "../src"),
         test: /.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        use: [
+          // 开发环境使用style-looader,打包模式抽离css
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "less-loader",
+        ],
       },
       // 图片处理
       {
