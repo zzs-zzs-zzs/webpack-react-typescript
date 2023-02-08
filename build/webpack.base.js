@@ -13,8 +13,8 @@ module.exports = {
   entry: path.join(__dirname, "../src/index.tsx"),
   // 输出配置
   output: {
-    // 输出的每个js文件名称
-    filename: "static/js/[name].js",
+    // 输出的每个js文件名称,chunckhash:8为哈希值
+    filename: "static/js/[name].[chunkhash:8].js",
     // 输出路径
     path: path.join(__dirname, "../dist"),
     // webpack4的clean-webpack-plugin，每次build时候清空dist文件，webpack内置了
@@ -64,7 +64,7 @@ module.exports = {
         },
         generator: {
           // 文件输出目录和命名
-          filename: "static/images/[name]p[ext]",
+          filename: "static/images/[name].[contenthash:8][ext]",
         }
       },
       // 匹配字体图标文件
@@ -77,7 +77,7 @@ module.exports = {
           }
         },
         generator:{
-          filename: "static/fonts/[name][ext]",
+          filename: "static/fonts/[name].[contenthash:8][ext]",
         },
       },
       // 匹配媒体文件
@@ -90,7 +90,7 @@ module.exports = {
           }
         },
         generator:{
-          filename: "static/media/[name][ext]",
+          filename: "static/media/[name].[contenthash:8][ext]",
         },
       },
     ],
