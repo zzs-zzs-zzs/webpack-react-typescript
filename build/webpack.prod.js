@@ -4,6 +4,7 @@ const baseConfig = require("./webpack.base")
 const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin")
+const TerserWebpackPlugin = require("terser-webpack-plugin")
 
 module.exports = merge(baseConfig, {
   mode: "production",
@@ -28,7 +29,18 @@ module.exports = merge(baseConfig, {
   optimization: {
     minimizer: [
       // 压缩css
-      new CssMinimizerWebpackPlugin()
+      new CssMinimizerWebpackPlugin(),
+      // 压缩js
+      new TerserWebpackPlugin({
+        // 开启多线程压缩
+        parallel: true,
+        terserOptions: {
+          compress: {
+            // 删除log函数
+            pure_funcs: ["console.log"],
+          }
+        }
+      })
     ]
   }
 })
