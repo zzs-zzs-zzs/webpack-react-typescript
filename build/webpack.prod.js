@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const baseConfig = require("./webpack.base")
 const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = merge(baseConfig, {
   mode: "production",
@@ -24,4 +25,10 @@ module.exports = merge(baseConfig, {
       filename: "static/css/[name].css",
     })
   ],
+  optimization: {
+    minimizer: [
+      // 压缩css
+      new CssMinimizerWebpackPlugin()
+    ]
+  }
 })
