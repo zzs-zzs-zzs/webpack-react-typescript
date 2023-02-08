@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./App.css"
 import "./App.less"
+import "./app-no-use.css"
 import Class from "@/components/Class"
 import smallImg from '@/assets/img/logo.svg'
 import bigImg from '@/assets/img/test.png'
