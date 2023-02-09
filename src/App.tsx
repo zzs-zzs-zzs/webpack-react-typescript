@@ -9,6 +9,16 @@ import { getDate } from "@/utils/date"
 import { getPath } from "@/utils/path"
 import { cloneDeep } from "lodash"
 import "@/utils/date"
+import styled from "styled-components"
+
+const Button = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`
 
 const App = () => {
   useEffect(() => {
@@ -31,6 +41,7 @@ const App = () => {
   return (
     <div>
       <Class />
+      <Button>button</Button>
       <h2 className="red size"> webpack5-react-ts</h2>
       <h2 className="red size">{date}</h2>
       <img src={smallImg} alt="小于10kb的图片" />

@@ -8,23 +8,30 @@ module.exports = {
       {
         // 设置兼容目标浏览器版本
         targets: {
-         chrome: 35,
-         ie: 9
+          chrome: 35,
+          ie: 9,
         },
         // 根据配置的浏览器兼容,以及代码中使用到的api进行引入polyfill按需添加
         useBuiltIns: "usage",
         // 配置使用core-js低版本
         corejs: 3,
-      }
+      },
     ],
     "@babel/preset-react",
     "@babel/preset-typescript",
   ],
   plugins: [
     [
+      "babel-plugin-styled-components",
+      {
+        displayName: true,
+        fileName: true,
+      },
+    ],
+    [
       "@babel/plugin-proposal-decorators",
       { legacy: true },
       isDev && require.resolve("react-refresh/babel"),
-    ].filter(Boolean)
-  ]
+    ].filter(Boolean),
+  ],
 }
