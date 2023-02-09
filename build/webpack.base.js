@@ -1,7 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const isDev = process.env.NODE_ENV === "development"
 
@@ -22,6 +22,9 @@ module.exports = {
     // 打包文件的公共前缀路径
     publicPath: "/",
   },
+  // externals: {
+  //   react: "React"
+  // },
   module: {
     rules: [
       // ts | tsx 处理
@@ -29,7 +32,7 @@ module.exports = {
         //  只对项目src文件的ts,tsx进行loader解析
         include: [path.resolve(__dirname, "../src")],
         test: /.(ts|tsx)$/,
-        use: ["thread-loader", "babel-loader"]
+        use: ["thread-loader", "babel-loader"],
       },
       // css处理
       {
@@ -60,12 +63,12 @@ module.exports = {
           dataUrlCondition: {
             // 小于10k转成base64
             maxSize: 10 * 1027,
-          }
+          },
         },
         generator: {
           // 文件输出目录和命名
           filename: "static/images/[name].[contenthash:8][ext]",
-        }
+        },
       },
       // 匹配字体图标文件
       {
@@ -74,9 +77,9 @@ module.exports = {
         parser: {
           dataUrlCondition: {
             maxSize: 10 * 1024,
-          }
+          },
         },
-        generator:{
+        generator: {
           filename: "static/fonts/[name].[contenthash:8][ext]",
         },
       },
@@ -87,9 +90,9 @@ module.exports = {
         parser: {
           dataUrlCondition: {
             maxSize: 10 * 1024,
-          }
+          },
         },
-        generator:{
+        generator: {
           filename: "static/media/[name].[contenthash:8][ext]",
         },
       },
@@ -101,10 +104,10 @@ module.exports = {
     extensions: [".js", ".tsx", ".ts"],
     // 配置别名
     alias: {
-      "@": path.join(__dirname, "../src")
+      "@": path.join(__dirname, "../src"),
     },
     // 查找第三方模块只在本项目的node_modules中查找
-    modules: [path.resolve(__dirname, "../node_modules")]
+    modules: [path.resolve(__dirname, "../node_modules")],
   },
   // 插件
   plugins: [
@@ -117,11 +120,11 @@ module.exports = {
     }),
     // 通过DefinePlugin，将环境变量注入
     new webpack.DefinePlugin({
-      "process.env.BASE_ENV": JSON.stringify(process.env.BASE_ENV)
-    })
+      "process.env.BASE_ENV": JSON.stringify(process.env.BASE_ENV),
+    }),
   ],
   cache: {
     // 使用文件缓存
-    type: "filesystem"
-  }
+    type: "filesystem",
+  },
 }

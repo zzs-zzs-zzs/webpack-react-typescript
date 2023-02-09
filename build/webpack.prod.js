@@ -21,9 +21,9 @@ module.exports = merge(baseConfig, {
           to: path.resolve(__dirname, "../dist"),
           filter: source => {
             return !source.includes("index.html")
-          }
-        }
-      ]
+          },
+        },
+      ],
     }),
     new MiniCssExtractPlugin({
       // 抽离css的输出目录和名称
@@ -35,11 +35,11 @@ module.exports = merge(baseConfig, {
       // 只打包这些文件中用到的样式
       paths: globAll.sync([
         `${path.join(__dirname, "../src")}/**/*.tsx`,
-        `${path.join(__dirname, "../public/index.html")}`
+        `${path.join(__dirname, "../public/index.html")}`,
       ]),
       safelist: {
         standard: [/^ant-/], // 过滤以ant-开头的类名，哪怕没用到也不删除
-      }
+      },
     }),
     // 开启gzip压缩
     new CompressionWebpackPlugin({
@@ -48,7 +48,7 @@ module.exports = merge(baseConfig, {
       algorithm: "gzip", // 压缩格式
       threshold: 10240, // 大于10k才压缩
       minRatio: 0.8, // 压缩率
-    })
+    }),
   ],
   optimization: {
     minimizer: [
@@ -62,9 +62,9 @@ module.exports = merge(baseConfig, {
           compress: {
             // 删除log函数
             pure_funcs: ["console.log"],
-          }
-        }
-      })
+          },
+        },
+      }),
     ],
     // 分割代码
     splitChunks: {
@@ -77,20 +77,21 @@ module.exports = merge(baseConfig, {
           minSize: 0, // 提取代码体积大于0
           priority: 1, // 提取优先级
         },
-        common: { // 提取页面公共代码
+        common: {
+          // 提取页面公共代码
           minChunks: 2, // 只要使用两次就提取出来
-          chunks: 'initial', // 只提取初始化就能获取到的模块,不管异步的
+          chunks: "initial", // 只提取初始化就能获取到的模块,不管异步的
           minSize: 0, // 提取代码体积大于0就提取出来
         },
         // 注意：权重要设置为最高，否则可能其他的 cacheGroups 会提前打包一部分样式文件
         styles: {
-          name: 'styles',
+          name: "styles",
           test: /\.(css|less)$/,
-          chunks: 'all',
+          chunks: "all",
           enforce: true,
           priority: 20,
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })
