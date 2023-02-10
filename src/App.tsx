@@ -3,15 +3,19 @@ import "@/utils/date"
 import LayoutCom from "@/components/layout"
 import Router from "@/router"
 import { BrowserRouter } from "react-router-dom"
+import { Provider } from "mobx-react"
+import useStore from "@/store/userStore"
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
-        <LayoutCom>
-          <Router></Router>
-        </LayoutCom>
-      </BrowserRouter>
+      <Provider store={useStore}>
+        <BrowserRouter>
+          <LayoutCom>
+            <Router></Router>
+          </LayoutCom>
+        </BrowserRouter>
+      </Provider>
     </div>
   )
 }

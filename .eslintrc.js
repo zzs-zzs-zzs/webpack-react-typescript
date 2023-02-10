@@ -16,6 +16,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
+    ecmaFeatures: {
+      legacyDecorators: true,
+    },
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
@@ -48,5 +51,12 @@ module.exports = {
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": ["off"],
+    "@typescript-eslint/no-non-null-assertion": ["off"],
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 }

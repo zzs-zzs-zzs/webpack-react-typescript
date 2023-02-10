@@ -15,12 +15,19 @@ module.exports = {
         useBuiltIns: "usage",
         // 配置使用core-js低版本
         corejs: 3,
+        loose: true,
       },
     ],
     "@babel/preset-react",
     "@babel/preset-typescript",
   ],
   plugins: [
+    [
+      "@babel/plugin-transform-typescript",
+      {
+        allowDeclareFields: true,
+      },
+    ],
     [
       "babel-plugin-styled-components",
       {
@@ -33,5 +40,11 @@ module.exports = {
       { legacy: true },
       isDev && require.resolve("react-refresh/babel"),
     ].filter(Boolean),
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        loose: true,
+      },
+    ],
   ],
 }
