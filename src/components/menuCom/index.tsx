@@ -6,7 +6,7 @@ import {
   AppstoreOutlined,
 } from "@ant-design/icons"
 import React, { useEffect, useState } from "react"
-import { rootRouter } from "@/router"
+import { noShowMenus, rootRouter } from "@/router"
 import { IRouteInter, IRouterChildren } from "@/router/interface"
 import { useNavigate } from "react-router-dom"
 import { IMenuData, IMenuInter } from "./interface"
@@ -43,6 +43,9 @@ const MenuCom = (props: IMenuData) => {
   const createRouter = (commentRoutes: IRouteInter[] | IRouterChildren[]): any[] => {
     const newItems: any = []
     commentRoutes.forEach(route => {
+      if (noShowMenus.includes(route.path!)) {
+        return
+      }
       if (route.children?.length) {
         // 多级目录
         newItems.push(

@@ -6,6 +6,11 @@ import Home from "@/pages/home"
 import Second1 from "@/pages/second1"
 import Second2 from "@/pages/second2"
 import { IRouteInter } from "./interface"
+import NoFound from "@/pages/noFound"
+
+export const noFound = "/noFound"
+
+export const noShowMenus = [noFound]
 
 export const rootRouter: IRouteInter[] = [
   {
@@ -23,6 +28,15 @@ export const rootRouter: IRouteInter[] = [
     meta: {
       title: "test页面",
       icon: "test",
+    },
+    children: [],
+  },
+  {
+    path: noFound,
+    element: <NoFound />,
+    meta: {
+      title: "NoFound",
+      icon: "none",
     },
     children: [],
   },
