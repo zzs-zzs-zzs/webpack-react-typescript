@@ -6,4 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     color: rebeccapurple;
   }
+  body {
+    margin: 0;
+  }
 `

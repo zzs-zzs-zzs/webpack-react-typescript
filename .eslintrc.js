@@ -47,5 +47,6 @@ module.exports = {
     camelcase: 0,
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-explicit-any": ["off"],
   },
 }
