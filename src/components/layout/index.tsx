@@ -17,6 +17,8 @@ const antIcon = <LoadingOutlined style={{ fontSize: 64 }} spin />
 
 const LayoutCom = (props: ILayout) => {
   const [loading, setLoading] = useState<boolean>(true)
+  const [breadcrumbData, setBreadcrumbData] = useState<string[]>([])
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
@@ -28,6 +30,10 @@ const LayoutCom = (props: ILayout) => {
     token: { colorBgContainer },
   } = theme.useToken()
 
+  const onMenuChange = (data: string[]): void => {
+    setBreadcrumbData(data)
+  }
+
   return (
     <>
       {loading && (
@@ -37,7 +43,7 @@ const LayoutCom = (props: ILayout) => {
       )}
       {!loading && (
         <LayoutContainer>
-          <MenuCom collapsed={collapsed} />
+          <MenuCom collapsed={collapsed} onMenuChange={onMenuChange} />
           <MainContainer>
             <IHeader style={{ padding: 0, background: colorBgContainer }}>
               {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
@@ -47,9 +53,9 @@ const LayoutCom = (props: ILayout) => {
             </IHeader>
             <ContentContainer>
               <Breadcrumb style={{ margin: "16px 0" }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
+                {breadcrumbData.map((i, index) => (
+                  <Breadcrumb.Item key={index}>{i}</Breadcrumb.Item>
+                ))}
               </Breadcrumb>
               <Content>{props.children}</Content>
             </ContentContainer>

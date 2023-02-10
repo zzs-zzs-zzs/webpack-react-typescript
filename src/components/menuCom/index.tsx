@@ -14,6 +14,8 @@ import { IMenu, Logo } from "./style"
 
 const { Sider } = Layout
 
+let menuMap: Record<string, string> = {}
+
 // icon 映射表
 const iconObj: Record<string, JSX.Element> = {
   home: <UserOutlined />,
@@ -29,6 +31,7 @@ const MenuCom = (props: IMenuData) => {
 
   const navigate = useNavigate()
   useEffect(() => {
+    menuMap = {}
     const data = createRouter(rootRouter)
     setMenuList(data)
     setMenuInitData()
@@ -43,15 +46,17 @@ const MenuCom = (props: IMenuData) => {
   const createRouter = (commentRoutes: IRouteInter[] | IRouterChildren[]): any[] => {
     const newItems: any = []
     commentRoutes.forEach(route => {
-      if (noShowMenus.includes(route.path!)) {
+      const pathKey = route.path || route.meta.icon
+      if (noShowMenus.includes(route.path!) || !pathKey) {
         return
       }
+      menuMap[pathKey] = route.meta?.title
       if (route.children?.length) {
         // 多级目录
         newItems.push(
           getItem({
             label: route.meta?.title,
-            key: route.path || route.meta.icon || "",
+            key: pathKey,
             icon: route.meta.icon && iconObj[route.meta.icon],
             children: createRouter(route.children),
           }),
@@ -60,7 +65,7 @@ const MenuCom = (props: IMenuData) => {
         // 一级目录
         newItems.push({
           label: route.meta?.title,
-          key: route.path,
+          key: pathKey,
           icon: route.meta.icon && iconObj[route.meta?.icon],
         })
       }
@@ -68,7 +73,12 @@ const MenuCom = (props: IMenuData) => {
     return newItems
   }
 
-  const handleOnClick = (e: { key: string }): void => {
+  const handleOnClick = (e: { key: string; keyPath: string[] }): void => {
+    const breadcrumbData: string[] = []
+    e.keyPath.forEach(item => {
+      breadcrumbData.push(menuMap[item])
+    })
+    props.onMenuChange(breadcrumbData.reverse())
     // 路由跳转
     navigate(e.key)
     setSelectedKeys([e.key])
@@ -76,14 +86,24 @@ const MenuCom = (props: IMenuData) => {
 
   /** 设置菜单默认选中值 */
   const setMenuInitData = (): void => {
-    const pathName = location.pathname
-    if (!pathName) {
+    const { pathname } = location
+    if (!pathname) {
       setSelectedKeys(["/"])
+      props.onMenuChange([menuMap["/home"]])
       return
     }
-    const pathArr = pathName.split("/")
-    setSelectedKeys([pathName])
-    setOpenKeys([pathArr[1]])
+    setSelectedKeys([pathname])
+    const pathArr = pathname.split("/")
+    const breadcrumbData = []
+    if (pathArr.length === 2) {
+      breadcrumbData.push(menuMap[pathname])
+    } else if (pathArr.length === 3) {
+      setOpenKeys([pathArr[1]])
+      breadcrumbData.push(...[menuMap[pathArr[1]], menuMap[pathname]])
+    } else {
+      // do nothing
+    }
+    props.onMenuChange(breadcrumbData)
   }
 
   return (

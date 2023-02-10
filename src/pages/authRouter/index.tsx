@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { rootRouter, noFound } from "@/router"
 import { Navigate, useLocation } from "react-router-dom"
 
 export const AuthRouter = (props: any) => {
-  const [routerList, setRouterList] = useState<string[]>([])
-  useEffect(() => {
-    getAllRouterList()
-  }, [])
-
-  const getAllRouterList = (): void => {
+  const getAllRouterList = (): string[] => {
     const routerArr: string[] = []
     rootRouter.forEach(item => {
       if (item.children.length) {
@@ -19,10 +14,12 @@ export const AuthRouter = (props: any) => {
         routerArr.push(item.path!)
       }
     })
-    setRouterList(routerArr)
+    return routerArr
   }
 
   const { pathname } = useLocation()
+  const routerList = getAllRouterList()
+
   if (!routerList.includes(pathname)) {
     return <Navigate to={noFound} replace />
   } else {
