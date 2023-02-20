@@ -14,6 +14,7 @@
 10. 使用 antd UI 框架
 11. 使用 react-router-dom 路由
 12. 使用 mobx 管理数据
+13. 使用 axios 请求后台数据
 
 ### 列一下 webpack 技术点
 
@@ -41,3 +42,4 @@
 17. 使用 tree-shaking 清理未使用 js，生产模式自带
 18. 使用 tree-shaking 清理未使用 css
 19. 使用 compression-webpack-plugin 开启 gizp 压缩
+20. 使用 dotenv-webpack 动态注入环境变量
