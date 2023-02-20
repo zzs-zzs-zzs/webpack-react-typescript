@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react"
 import { inject, observer } from "mobx-react"
 import { IHomeData } from "./interface"
 import { Button, Input } from "antd"
+import { getTestDataObs } from "@/api/testApis"
 
 const Home = observer(({ store }: IHomeData) => {
   const [name, setName] = useState<string>("")
 
   useEffect(() => {
+    getData()
     setName(store?.userInfo.name!)
   }, [])
 
@@ -16,7 +18,16 @@ const Home = observer(({ store }: IHomeData) => {
   }
 
   const handleSetName = (): void => {
+    getData()
     store?.setUserInfo(name)
+  }
+
+  /** 请求后台数据 */
+  const getData = async (): Promise<void> => {
+    const data = await getTestDataObs({
+      name: name,
+    })
+    console.log("%c [  ]-28", "font-size:13px; background:pink; color:#bf2c9f;", data)
   }
 
   return (
@@ -29,4 +40,4 @@ const Home = observer(({ store }: IHomeData) => {
   )
 })
 
-export default inject(store => store)(Home)
+export default inject((store) => store)(Home)
