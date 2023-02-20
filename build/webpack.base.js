@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const Dotenv = require("dotenv-webpack")
 
 const isDev = process.env.NODE_ENV === "development"
 
@@ -121,6 +122,10 @@ module.exports = {
     // 通过DefinePlugin，将环境变量注入
     new webpack.DefinePlugin({
       "process.env.BASE_ENV": JSON.stringify(process.env.BASE_ENV),
+    }),
+    // 动态读取环境变量文件
+    new Dotenv({
+      path: `./.env.${isDev ? "dev" : "prod"}`,
     }),
   ],
   cache: {
