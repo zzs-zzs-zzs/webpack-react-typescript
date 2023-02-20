@@ -36,6 +36,9 @@ module.exports = merge(baseConfig, {
     // 强制检查ts错误
     new ForkTsCheckerWebpackPlugin({
       async: false,
+      typescript: {
+        memoryLimit: 4096,
+      },
     }),
   ],
 })

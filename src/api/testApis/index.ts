@@ -1,4 +1,5 @@
-import myAxios, { AxiosResponseType } from "@/api"
+import myAxios from "@/api"
+import { AxiosResponseType } from "../interface"
 
 interface ITestData {
   name: string

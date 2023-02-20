@@ -45,7 +45,7 @@ const MenuCom = (props: IMenuData) => {
   /** 生成菜单数据 */
   const createRouter = (commentRoutes: IRouteInter[] | IRouterChildren[]): any[] => {
     const newItems: any = []
-    commentRoutes.forEach(route => {
+    commentRoutes.forEach((route) => {
       const pathKey = route.path || route.meta.icon
       if (noShowMenus.includes(route.path!) || !pathKey) {
         return
@@ -75,7 +75,7 @@ const MenuCom = (props: IMenuData) => {
 
   const handleOnClick = (e: { key: string; keyPath: string[] }): void => {
     const breadcrumbData: string[] = []
-    e.keyPath.forEach(item => {
+    e.keyPath.forEach((item) => {
       breadcrumbData.push(menuMap[item])
     })
     props.onMenuChange(breadcrumbData.reverse())

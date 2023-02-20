@@ -5,9 +5,9 @@ import { Navigate, useLocation } from "react-router-dom"
 export const AuthRouter = (props: any) => {
   const getAllRouterList = (): string[] => {
     const routerArr: string[] = []
-    rootRouter.forEach(item => {
+    rootRouter.forEach((item) => {
       if (item.children.length) {
-        item.children.forEach(element => {
+        item.children.forEach((element) => {
           routerArr.push(element.path)
         })
       } else {
