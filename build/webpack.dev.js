@@ -25,7 +25,9 @@ module.exports = merge(baseConfig, {
   },
   plugins: [
     // 添加热更新插件，不添加这个plugin，修改app.ts，会刷新浏览器
-    new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }),
     // eslint
     new EslintWebpackPlugin({
       files: ["src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
