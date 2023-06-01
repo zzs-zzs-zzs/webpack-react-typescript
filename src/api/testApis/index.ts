@@ -9,6 +9,7 @@ interface ITestData {
 export const getTestDataObs = (data: ITestData): AxiosResponseType => {
   return myAxios({
     url: "/test1",
+    method: "get",
     params: {
       name: data.name,
     },

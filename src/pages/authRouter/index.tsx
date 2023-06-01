@@ -2,7 +2,11 @@ import React from "react"
 import { rootRouter, noFound } from "@/router"
 import { Navigate, useLocation } from "react-router-dom"
 
-export const AuthRouter = (props: any) => {
+interface IProps {
+  children: React.ReactElement
+}
+
+export const AuthRouter: React.FC<IProps> = (props) => {
   const getAllRouterList = (): string[] => {
     const routerArr: string[] = []
     rootRouter.forEach((item) => {
