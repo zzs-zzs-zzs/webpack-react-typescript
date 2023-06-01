@@ -31,6 +31,7 @@ export const Content = styled.div`
   background: white;
   flex: 1;
   padding: 12px;
+  overflow: auto;
 `
 export const IHeader = styled(Header)`
   height: 48px !important;
