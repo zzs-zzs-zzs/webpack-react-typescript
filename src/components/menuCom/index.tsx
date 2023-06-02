@@ -4,11 +4,12 @@ import {
   LaptopOutlined,
   NotificationOutlined,
   AppstoreOutlined,
+  CarryOutOutlined,
 } from "@ant-design/icons"
 import React, { useEffect, useState } from "react"
 import { noShowMenus, rootRouter } from "@/router"
 import { IRouteInter, IRouterChildren } from "@/router/interface"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { IMenuData, IMenuInter } from "./interface"
 import { IMenu, Logo } from "./style"
 
@@ -22,12 +23,19 @@ const iconObj: Record<string, JSX.Element> = {
   test: <NotificationOutlined />,
   class: <LaptopOutlined />,
   second: <AppstoreOutlined />,
+  hooks: <CarryOutOutlined />,
 }
 
 const MenuCom = (props: IMenuData) => {
   const [menuList, setMenuList] = useState<IMenuInter[]>([])
   const [selectedKeys, setSelectedKeys] = useState<string[]>(["/"])
   const [openKeys, setOpenKeys] = useState<string[]>([])
+
+  const location = useLocation()
+
+  useEffect(() => {
+    setMenuInitData()
+  }, [location])
 
   const navigate = useNavigate()
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { rootRouter, noFound } from "@/router"
 import { Navigate, useLocation } from "react-router-dom"
 
@@ -7,6 +7,15 @@ interface IProps {
 }
 
 export const AuthRouter: React.FC<IProps> = (props) => {
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log(
+      "%c [ 可以在这里执行路由守卫 ]-14",
+      "font-size:13px; background:pink; color:#bf2c9f;",
+    )
+  }, [location])
+
   const getAllRouterList = (): string[] => {
     const routerArr: string[] = []
     rootRouter.forEach((item) => {
@@ -21,10 +30,9 @@ export const AuthRouter: React.FC<IProps> = (props) => {
     return routerArr
   }
 
-  const { pathname } = useLocation()
   const routerList = getAllRouterList()
 
-  if (!routerList.includes(pathname)) {
+  if (!routerList.includes(location.pathname)) {
     return <Navigate to={noFound} replace />
   } else {
     return props.children

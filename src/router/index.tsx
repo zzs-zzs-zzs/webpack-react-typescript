@@ -7,6 +7,19 @@ import Second1 from "@/pages/second1"
 import Second2 from "@/pages/second2"
 import { IRouteInter } from "./interface"
 import NoFound from "@/pages/noFound"
+import { BatchUpdate } from "@/pages/hooks/batchUpdate"
+import { UseTransition } from "@/pages/hooks/useTransition"
+import { UseDeferredValue } from "@/pages/hooks/useDeferredValue"
+import { UseReducer } from "@/pages/hooks/useReducer"
+import { UseRef } from "@/pages/hooks/useRef"
+import { UseInsertionEffect } from "@/pages/hooks/useInsertionEffect"
+import { UseMemo } from "@/pages/hooks/useMemo"
+import { ReactMemo } from "@/pages/hooks/react.memoAnduseCallback/react.memoAnduseCallback"
+import { SuspenseCom } from "@/pages/suspense"
+import { TestErrorBoundary } from "@/pages/hooks/testErrorBoundary"
+import { TestPortal } from "@/pages/hooks/testPortal"
+import { UseContext } from "@/pages/hooks/useContext"
+import { TestRoute } from "@/pages/hooks/testRoute"
 
 export const noFound = "/noFound"
 
@@ -69,6 +82,119 @@ export const rootRouter: IRouteInter[] = [
         meta: {
           title: "二级-页面2",
         },
+      },
+    ],
+  },
+  {
+    path: "",
+    meta: {
+      title: "hook练习",
+      icon: "hooks",
+    },
+    children: [
+      {
+        path: "/hooks/batchUpdate",
+        element: <BatchUpdate />,
+        meta: {
+          title: "批量更新",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useTransition",
+        element: <UseTransition />,
+        meta: {
+          title: "useTransition",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useDeferredValue",
+        element: <UseDeferredValue />,
+        meta: {
+          title: "useDeferredValue",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useReducer",
+        element: <UseReducer />,
+        meta: {
+          title: "useReducer",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useRef",
+        element: <UseRef />,
+        meta: {
+          title: "useRef",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useInsertionEffect",
+        element: <UseInsertionEffect />,
+        meta: {
+          title: "useInsertionEffect",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useMemo",
+        element: <UseMemo />,
+        meta: {
+          title: "useMemo",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/reactMemo",
+        element: <ReactMemo />,
+        meta: {
+          title: "reactMemo",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/suspense",
+        element: <SuspenseCom />,
+        meta: {
+          title: "suspense",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/testErrorBoundary",
+        element: <TestErrorBoundary />,
+        meta: {
+          title: "testErrorBoundary",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/testPortal",
+        element: <TestPortal />,
+        meta: {
+          title: "testPortal",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/useContext",
+        element: <UseContext />,
+        meta: {
+          title: "useContext",
+        },
+        children: [],
+      },
+      {
+        path: "/hooks/testRoute",
+        element: <TestRoute />,
+        meta: {
+          title: "testRoute",
+        },
+        children: [],
       },
     ],
   },
