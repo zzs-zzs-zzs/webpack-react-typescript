@@ -20,6 +20,7 @@ import { TestErrorBoundary } from "@/pages/hooks/testErrorBoundary"
 import { TestPortal } from "@/pages/hooks/testPortal"
 import { UseContext } from "@/pages/hooks/useContext"
 import { TestRoute } from "@/pages/hooks/testRoute"
+import { CustomHook } from "@/pages/hooks/customHook"
 
 export const noFound = "/noFound"
 
@@ -92,6 +93,14 @@ export const rootRouter: IRouteInter[] = [
       icon: "hooks",
     },
     children: [
+      {
+        path: "/hooks/customHook",
+        element: <CustomHook />,
+        meta: {
+          title: "customHook",
+        },
+        children: [],
+      },
       {
         path: "/hooks/batchUpdate",
         element: <BatchUpdate />,
