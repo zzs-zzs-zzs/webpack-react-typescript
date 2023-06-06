@@ -10,4 +10,5 @@ export const Logo = styled.div`
 export const IMenu = styled(Menu)`
   height: calc(100% - 64px);
   border-right: 0;
+  overflow: auto;
 `
