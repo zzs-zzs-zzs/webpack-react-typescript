@@ -35,6 +35,7 @@ export const UseDeferredValue: React.FC<{}> = () => {
 
   return (
     <div>
+      切换tab看效果，显示loading效果，再更新数据
       <div>
         {Object.keys(tab).map((item, index) => (
           <Tab active={active === item} key={index} onClick={() => handleChangeTab(item)}>

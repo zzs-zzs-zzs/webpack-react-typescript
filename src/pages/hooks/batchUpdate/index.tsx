@@ -31,6 +31,7 @@ export const BatchUpdate: React.FC<{}> = () => {
 
   return (
     <div onClick={handleClick}>
+      点击测试render次数，打开控制台
       <h1>{count1}</h1>
       <h1>{count2}</h1>
     </div>
