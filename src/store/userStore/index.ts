@@ -1,4 +1,4 @@
-import { observable, action, makeAutoObservable } from "mobx"
+import { observable, action, makeAutoObservable, computed } from "mobx"
 
 class UserStore {
   constructor() {
@@ -8,6 +8,10 @@ class UserStore {
 
   @observable userInfo = {
     name: "zzs",
+  }
+
+  @computed getUserName() {
+    return this.userInfo.name
   }
 
   @action setUserInfo = (name: string): void => {

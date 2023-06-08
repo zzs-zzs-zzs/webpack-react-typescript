@@ -1,8 +1,5 @@
-import { IUserInfo, ISetUserInfo } from "@/store/userStore/interface"
+import userStore from "@/store/userStore"
 
 export interface IHomeData {
-  store?: {
-    userInfo: IUserInfo
-    setUserInfo: ISetUserInfo
-  }
+  store: typeof userStore
 }

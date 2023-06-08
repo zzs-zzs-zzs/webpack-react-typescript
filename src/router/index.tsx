@@ -21,6 +21,7 @@ import { TestPortal } from "@/pages/hooks/testPortal"
 import { UseContext } from "@/pages/hooks/useContext"
 import { TestRoute } from "@/pages/hooks/testRoute"
 import { CustomHook } from "@/pages/hooks/customHook"
+import userStore from "@/store/userStore"
 
 export const noFound = "/noFound"
 
@@ -29,7 +30,7 @@ export const noShowMenus = [noFound]
 export const rootRouter: IRouteInter[] = [
   {
     path: "/",
-    element: <Home />,
+    element: <Home store={userStore} />,
     meta: {
       title: "home页面",
       icon: "home",
@@ -56,7 +57,7 @@ export const rootRouter: IRouteInter[] = [
   },
   {
     path: "/class",
-    element: <Class />,
+    element: <Class store={userStore} />,
     meta: {
       title: "class页面",
       icon: "class",

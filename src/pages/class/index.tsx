@@ -1,12 +1,10 @@
 import React, { PureComponent } from "react"
 import { inject, observer } from "mobx-react"
-import { IUserInfo } from "@/store/userStore/interface"
 import { Input } from "antd"
+import userStore from "@/store/userStore"
 
 interface IProps {
-  store?: {
-    userInfo: IUserInfo
-  }
+  store: typeof userStore
 }
 
 interface IState {
@@ -43,7 +41,7 @@ class Class extends PureComponent<IProps, IState> {
     return (
       <>
         <Input value={this.state.name} onChange={this.changeName} />
-        <div>this.props.store.userInfo.name={this.props.store?.userInfo.name}</div>
+        <div>this.props.store.userInfo.name={this.props.store.userInfo.name}</div>
         <div>this.state.name={this.state.name}</div>
       </>
     )
