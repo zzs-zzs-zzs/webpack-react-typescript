@@ -11,7 +11,7 @@ interface IState {
   name: string
 }
 
-// 装饰器为,组件添加age属性
+/** 装饰器为,组件添加age属性 */
 function addAge(Target: Function) {
   console.log(
     "%c [ 执行了装饰器addAge ]-17",
