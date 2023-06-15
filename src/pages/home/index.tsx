@@ -80,4 +80,4 @@ const Home = ({ store }: IHomeData) => {
   )
 }
 
-export default inject((store) => store)(observer(Home))
+export default inject("store")(observer(Home))
