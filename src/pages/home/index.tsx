@@ -5,7 +5,7 @@ import { Button, Input } from "antd"
 import { getTestDataObs } from "@/api/testApis"
 import { autorun, reaction, when } from "mobx"
 
-const Home = observer(({ store }: IHomeData) => {
+const Home = ({ store }: IHomeData) => {
   const [name, setName] = useState<string>("")
 
   useEffect(() => {
@@ -78,6 +78,6 @@ const Home = observer(({ store }: IHomeData) => {
       <h2>computed获取name --- {store.getUserName()}</h2>
     </>
   )
-})
+}
 
-export default inject((store) => store)(Home)
+export default inject((store) => store)(observer(Home))

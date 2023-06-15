@@ -8,7 +8,7 @@ interface IContextData {
 
 const TestContext = createContext<IContextData>({})
 
-const Com: React.FC = () => {
+const Com = () => {
   console.log("%c [ Com组件渲染了 ]-12", "font-size:13px; background:pink; color:#bf2c9f;")
   const myContext = useContext(TestContext)
   return (
@@ -19,7 +19,7 @@ const Com: React.FC = () => {
   )
 }
 
-const Com1: React.FC = () => {
+const Com1 = () => {
   console.log("%c [ Com1组件渲染了 ]-26", "font-size:13px; background:pink; color:#bf2c9f;")
   const myContext = useContext(TestContext)
   return (
@@ -30,7 +30,7 @@ const Com1: React.FC = () => {
   )
 }
 
-export const UseContext: React.FC = () => {
+export const UseContext = () => {
   const [obj, setObj] = useState<IContextData>({
     key1: 18,
     key2: 22,

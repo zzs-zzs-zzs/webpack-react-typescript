@@ -1,6 +1,6 @@
 import React, { useInsertionEffect } from "react"
 
-export const UseInsertionEffect: React.FC = () => {
+export const UseInsertionEffect = () => {
   useInsertionEffect(() => {
     const style = document.createElement("style")
     style.innerHTML = `

@@ -6,7 +6,7 @@ interface IProps {
   children: React.ReactElement
 }
 
-export const AuthRouter: React.FC<IProps> = (props) => {
+export const AuthRouter = (props: IProps) => {
   const location = useLocation()
 
   useEffect(() => {

@@ -21,7 +21,7 @@ const CommonCom: LazyExoticComponent<React.FC> = lazy(() => {
   })
 })
 
-export const SuspenseCom: React.FC = () => {
+export const SuspenseCom = () => {
   return (
     <>
       <div>下面用的是suspense，没有加载出来用loading</div>

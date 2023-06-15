@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react"
 
-export const UseMemo: React.FC = () => {
+export const UseMemo = () => {
   const [count, setCount] = useState(100)
 
   const [curTime, setCurTime] = useState("")

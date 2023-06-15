@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { TestCom, IChildRef } from "@/components/testCom/testCom"
 
-export const UseRef: React.FC = () => {
+export const UseRef = () => {
   const dom = useRef<IChildRef>({} as IChildRef)
 
   const showDomRef = () => {
