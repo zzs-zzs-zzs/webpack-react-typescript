@@ -2,7 +2,7 @@ import { Button } from "antd"
 import React, { useState } from "react"
 import ReactDOM from "react-dom"
 
-const TipCom: React.FC<{}> = () => {
+const TipCom: React.FC = () => {
   return (
     <div
       style={{
@@ -20,7 +20,7 @@ const TipCom: React.FC<{}> = () => {
   )
 }
 
-export const TestPortal: React.FC<{}> = () => {
+export const TestPortal: React.FC = () => {
   const [showTip, setShowTip] = useState(false)
 
   const changeShowTip = () => {

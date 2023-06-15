@@ -3,7 +3,7 @@ import React, { useState } from "react"
 
 type IUseFetchData = [string, () => void]
 
-export const CustomHook: React.FC<{}> = () => {
+export const CustomHook: React.FC = () => {
   const useFetch: () => IUseFetchData = () => {
     const [data, setData] = useState<string>("")
 

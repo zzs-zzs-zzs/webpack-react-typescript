@@ -13,7 +13,7 @@ const LoadingContainer = styled.div`
   width: 20px;
 `
 
-const CommonCom: LazyExoticComponent<React.FC<{}>> = lazy(() => {
+const CommonCom: LazyExoticComponent<React.FC> = lazy(() => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(import("@/components/commonCom"))
@@ -21,7 +21,7 @@ const CommonCom: LazyExoticComponent<React.FC<{}>> = lazy(() => {
   })
 })
 
-export const SuspenseCom: React.FC<{}> = () => {
+export const SuspenseCom: React.FC = () => {
   return (
     <>
       <div>下面用的是suspense，没有加载出来用loading</div>

@@ -10,7 +10,7 @@ import {
   Routes,
 } from "react-router-dom"
 
-export const TestRoute: React.FC<{}> = () => {
+export const TestRoute: React.FC = () => {
   console.log("%c [  ]-9", "font-size:13px; background:pink; color:#bf2c9f;", useParams())
   console.log("%c [  ]-7", "font-size:13px; background:pink; color:#bf2c9f;", useSearchParams())
   console.log("%c [  ]-8", "font-size:13px; background:pink; color:#bf2c9f;", useLocation())

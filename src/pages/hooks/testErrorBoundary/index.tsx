@@ -2,7 +2,7 @@ import { ErrorBoundary } from "@/components/errorBoundary"
 import { Button } from "antd"
 import React from "react"
 
-export const TestErrorBoundary: React.FC<{}> = () => {
+export const TestErrorBoundary: React.FC = () => {
   const throwError = () => {
     throw new Error("抛出错误啦")
   }

@@ -13,7 +13,7 @@ const Tab = styled.div`
 
 type ITab = Record<string, string[]>
 
-export const UseTransition: React.FC<{}> = () => {
+export const UseTransition: React.FC = () => {
   const mockList1 = new Array(10000).fill("tab1").map((item, index) => item + "--" + index)
   const mockList2 = new Array(10000).fill("tab2").map((item, index) => item + "--" + index)
   const mockList3 = new Array(10000).fill("tab3").map((item, index) => item + "--" + index)

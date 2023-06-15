@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Button } from "antd"
 
-interface IProps {
-  children?: React.ReactElement
-}
-
-export const ErrorBoundary: React.FC<IProps> = (props) => {
+export const ErrorBoundary: React.FC<React.PropsWithChildren> = (props) => {
   const [hsaError, setHasError] = useState(false)
 
   useEffect(() => {

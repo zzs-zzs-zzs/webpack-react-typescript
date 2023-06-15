@@ -1,7 +1,7 @@
 import React, { useId, useInsertionEffect, useState } from "react"
 import { flushSync } from "react-dom"
 
-export const BatchUpdate: React.FC<{}> = () => {
+export const BatchUpdate: React.FC = () => {
   console.log("%c [ render ]-8", "font-size:13px; background:pink; color:#bf2c9f;")
   const id = useId()
   const id1 = useId()

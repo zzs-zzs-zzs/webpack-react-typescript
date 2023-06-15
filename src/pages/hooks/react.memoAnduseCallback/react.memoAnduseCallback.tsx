@@ -6,7 +6,7 @@ import { MemoCom } from "@/components/memoCom"
 //------------------------------------------------------
 // 通过useCallback或者useMemo可以解决
 
-export const ReactMemo: React.FC<{}> = () => {
+export const ReactMemo: React.FC = () => {
   const [curTime, setCurTime] = useState("")
   const [count, setCount] = useState(0)
 

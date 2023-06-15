@@ -7,7 +7,7 @@ interface IAction {
   payload: Object
 }
 
-export const UseReducer: React.FC<{}> = () => {
+export const UseReducer: React.FC = () => {
   const [obj, dispatchObj] = useReducer(
     (state: IState, action: IAction) => {
       const { name, payload } = action
