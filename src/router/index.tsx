@@ -22,6 +22,13 @@ import { UseContext } from "@/pages/hooks/useContext"
 import { TestRoute } from "@/pages/hooks/testRoute"
 import { CustomHook } from "@/pages/hooks/customHook"
 import userStore from "@/store/userStore"
+import { UseRequest } from "@/pages/ahooks/useRequest"
+import { UseUpdateEffect } from "@/pages/ahooks/effect/useUpdateEffect"
+import { UseDebounceEffect } from "@/pages/ahooks/effect/useDebounceEffect"
+import { UseLockFn } from "@/pages/ahooks/effect/useLockFn"
+import { UseUpdate } from "@/pages/ahooks/effect/useUpdate"
+import { UseEventListener } from "@/pages/ahooks/dom/useEventListener"
+import { UseClickAway } from "@/pages/ahooks/dom/useClickAway"
 
 export const noFound = "/noFound"
 
@@ -205,6 +212,64 @@ export const rootRouter: IRouteInter[] = [
           title: "testRoute",
         },
         children: [],
+      },
+    ],
+  },
+  {
+    path: "",
+    meta: {
+      title: "ahooks练习",
+      icon: "ahooks",
+    },
+    children: [
+      {
+        path: "/ahooks/useRequest",
+        element: <UseRequest />,
+        meta: {
+          title: "useRequest",
+        },
+      },
+      {
+        path: "/ahooks/effect/useUpdateEffect",
+        element: <UseUpdateEffect />,
+        meta: {
+          title: "useUpdateEffect",
+        },
+      },
+      {
+        path: "/ahooks/effect/useDebounceEffect",
+        element: <UseDebounceEffect />,
+        meta: {
+          title: "useDebounceEffect",
+        },
+      },
+      {
+        path: "/ahooks/effect/useLockFn",
+        element: <UseLockFn />,
+        meta: {
+          title: "useLockFn",
+        },
+      },
+      {
+        path: "/ahooks/effect/useUpdate",
+        element: <UseUpdate />,
+        meta: {
+          title: "useUpdate",
+        },
+      },
+      {
+        path: "/ahooks/dom/useEventListener",
+        element: <UseEventListener />,
+        meta: {
+          title: "useEventListener",
+        },
+      },
+      {
+        path: "/ahooks/dom/useClickAway",
+        element: <UseClickAway />,
+        meta: {
+          title: "useClickAway",
+        },
       },
     ],
   },
