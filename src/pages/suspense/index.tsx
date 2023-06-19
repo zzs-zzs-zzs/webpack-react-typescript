@@ -3,7 +3,7 @@ import { Spin } from "antd"
 import { LoadingOutlined } from "@ant-design/icons"
 import styled from "styled-components"
 
-const antIcon = <LoadingOutlined style={{ fontSize: 20 }} spin />
+const antIcon = <LoadingOutlined style={{ fontSize: 20 }} spin rev={undefined} />
 
 const LoadingContainer = styled.div`
   display: flex;

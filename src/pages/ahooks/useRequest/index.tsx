@@ -3,7 +3,7 @@ import { useRequest } from "ahooks"
 import { LoadingOutlined } from "@ant-design/icons"
 import { Button, Spin } from "antd"
 
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin rev={undefined} />
 
 const getData = (): Promise<IData> => {
   return new Promise((resolve) => {

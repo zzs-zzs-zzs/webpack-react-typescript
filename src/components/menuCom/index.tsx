@@ -5,6 +5,7 @@ import {
   NotificationOutlined,
   AppstoreOutlined,
   CarryOutOutlined,
+  AreaChartOutlined,
 } from "@ant-design/icons"
 import React, { useEffect, useState } from "react"
 import { noShowMenus, rootRouter } from "@/router"
@@ -19,11 +20,12 @@ let menuMap: Record<string, string> = {}
 
 // icon 映射表
 const iconObj: Record<string, JSX.Element> = {
-  home: <UserOutlined />,
-  test: <NotificationOutlined />,
-  class: <LaptopOutlined />,
-  second: <AppstoreOutlined />,
-  hooks: <CarryOutOutlined />,
+  home: <UserOutlined rev={undefined} />,
+  test: <NotificationOutlined rev={undefined} />,
+  class: <LaptopOutlined rev={undefined} />,
+  second: <AppstoreOutlined rev={undefined} />,
+  hooks: <CarryOutOutlined rev={undefined} />,
+  ahooks: <AreaChartOutlined rev={undefined} />,
 }
 
 const MenuCom = (props: IMenuData) => {
@@ -102,15 +104,14 @@ const MenuCom = (props: IMenuData) => {
     }
     setSelectedKeys([pathname])
     const pathArr = pathname.split("/")
-    const breadcrumbData = []
-    if (pathArr.length === 2) {
-      breadcrumbData.push(menuMap[pathname])
-    } else if (pathArr.length === 3) {
+    if (pathArr.length >= 3) {
       setOpenKeys([pathArr[1]])
-      breadcrumbData.push(...[menuMap[pathArr[1]], menuMap[pathname]])
-    } else {
-      // do nothing
     }
+    const breadcrumbData = []
+    for (let i = 1; i < pathArr.length; i++) {
+      breadcrumbData.push(menuMap[pathArr[i]])
+    }
+    breadcrumbData.push(menuMap[pathname])
     props.onMenuChange(breadcrumbData)
   }
 
