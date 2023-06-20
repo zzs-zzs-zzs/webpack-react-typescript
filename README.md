@@ -16,6 +16,7 @@
 12. 使用 mobx 管理数据
 13. 使用 axios 请求后台数据
 14. 使用 ahooks
+15. 使用 source-map 定位生产包源码，可以将 error.stack 赋值给 src/utils/sourceMap 的 stack，执行文件即可
 
 ### 列一下 webpack 技术点
 

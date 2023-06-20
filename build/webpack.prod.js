@@ -11,6 +11,7 @@ const glob = require("glob")
 const CompressionWebpackPlugin = require("compression-webpack-plugin")
 
 module.exports = merge(baseConfig, {
+  devtool: "hidden-source-map",
   mode: "production",
   plugins: [
     // 复制文件插件
@@ -19,7 +20,7 @@ module.exports = merge(baseConfig, {
         {
           from: path.resolve(__dirname, "../public"),
           to: path.resolve(__dirname, "../dist"),
-          filter: source => {
+          filter: (source) => {
             return !source.includes("index.html")
           },
         },
